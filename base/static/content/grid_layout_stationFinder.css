@@ -1,0 +1,91 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.leaflet-container {
+    margin: auto;
+    height: 80%;
+    width: 100%;
+    max-width: 80%;
+    max-height: 100%;
+}
+.stationFinder-grid-container {
+    /*This contains the layout of the app*/
+    display: grid;
+    /*This line divides the page into 1 + 1 + 1 + 5 + 1 = 9 equal parts, with two main sections; input and data*/
+    grid-template-rows: [modebuttons-start] 1fr [modebuttons-end] 1fr [searchbars-start] 1fr [searchbars-end maplist-start] 30fr [maplist-end randomstation-start] 1fr [randomstation-end];
+    /*This line divides the page into 3 + 4 = 7 equal parts,*/
+    /*grid-template-columns: [sitestation-start] 3fr [sitestation-end ccc-start]  4fr [ccc-end];*/
+    
+}
+.stationFinder-grid-modebuttons {
+    /*This holds all our inputs. They go in the upper left and upper right blocks*/
+    grid-row: modebuttons;
+    text-align: center;
+}
+.stationFinder-grid-maplist {
+    grid-row: maplist;
+    text-align: center;
+}
+.stationFinder-grid-randomlink {
+    grid-row: randomstation;
+    text-align: center;
+}
+.graphViewer-grid-container {
+    /*This contains the layout of the app*/
+    display: grid;
+    grid-row: maplist;
+    /*This line divides the page into 2 + 1 + 1 = 4 equal parts*/
+    grid-template-rows: [dategraphchange-start] 1fr [dategraphchange-end biggraph-start] 4fr [biggraph-end variables-start] 1fr [variables-end askhelp-start] 1fr [askhelp-end];
+    grid-template-columns: [biggraph-start dateselect-start] 1fr [dateselect-end graphchange-start] 1fr [graphchange-end biggraph-end];
+    
+}
+.map{
+    grid-row: map;
+    grid-column: biggraph;
+}
+.stationFinder-grid-searchbars {
+    grid-row: dategraphchange;
+    grid-column: graphchange;
+    text-align: center;
+}
+.graphViewer-grid-dateselect {
+    grid-row: dategraphchange;
+    grid-column: dateselect;
+    text-align: center;
+}
+.graphViewer-grid-biggraph {
+    grid-row: biggraph;
+    grid-column: biggraph;
+    height: 50vh;
+}
+.graphViewer-grid-multigraph {
+    height: 50vh;
+}
+.graphViewer-grid-askhelp {
+    grid-row: askhelp;
+}
+.graphViewer-grid-variables {
+    grid-row: variables;
+    grid-column: biggraph;
+    margin-bottom: auto;
+    overflow: auto;
+    white-space: nowrap;
+}
+.graphButton .hovertext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+    .graphButton:hover .hovertext {
+        visibility: visible;
+    }

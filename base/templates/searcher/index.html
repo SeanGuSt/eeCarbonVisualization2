@@ -1,0 +1,22 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <form id = "paramForm", data-params-url = "{% url 'base:ajax_load_params' %}", method = "GET">
+      {% csrf_token %}
+      <select name = "Locations" id = "Locations">
+        <option value = "">Make Selection...</option>
+        {% for location in Locations %}
+          <option value = "{{ location.siteId }}">{{ location.siteId }}</option>
+        {% endfor %}
+      </select>
+      <select name = "Relationship" id = "Relationship">
+      </select>
+      <input type="submit" value="Submit">
+    </form>
+    <script src = {% static "scripts/dynamic_dropdown_update.js" %}></script>
+  </body>
+</html>

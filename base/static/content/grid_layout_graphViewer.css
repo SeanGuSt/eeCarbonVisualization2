@@ -1,0 +1,48 @@
+.graphViewer-grid-container {
+    /*This contains the layout of the app*/
+    display: grid;
+    /*This line divides the page into 2 + 1 + 1 = 4 equal parts*/
+    grid-template-rows: [dategraphchange-start] 1fr [dategraphchange-end biggraph-start] 4fr [biggraph-end variables-start] 1fr [variables-end askhelp-start] 1fr [askhelp-end];
+    grid-template-columns: [biggraph-start dateselect-start] 1fr [dateselect-end graphchange-start] 1fr [graphchange-end biggraph-end];
+    
+}
+.graphViewer-grid-dateselect {
+    grid-row: dategraphchange;
+    grid-column: dateselect;
+}
+.graphViewer-grid-graphchange {
+    grid-row: dategraphchange;
+    grid-column: biggraph;
+}
+.graphViewer-grid-biggraph {
+    grid-row: biggraph;
+    grid-column: biggraph;
+    height: 50vh;
+}
+.graphViewer-grid-askhelp {
+    grid-row: askhelp;
+}
+.graphViewer-grid-variables {
+    grid-row: variables;
+    grid-column: biggraph;
+    margin-bottom: auto;
+    overflow: auto;
+    white-space: nowrap;
+}
+.graphButton .hovertext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+    .graphButton:hover .hovertext {
+        visibility: visible;
+    }

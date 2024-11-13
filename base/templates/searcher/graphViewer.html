@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet" href = {% static 'content/grid_layout_graphViewer.css' %}>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body class = "graphViewer-grid-container">
+        <div class = "graphViewer-grid-dateselect">
+            <label for="date0">Start Date:</label><input class = "dateRangeInput" type = "date" id = "date0">
+            <label for="date1">End Date:</label><input class = "dateRangeInput" type = "date" id = "date1">
+        </div>
+        <div class = "graphViewer-grid-graphChange"><button type = "button" class = "graphChange" url = "{% url 'base:ajax_graphViewer_layers' %}">Change Graph Type</button></div>
+        <div class="graphViewer-grid-biggraph"><canvas id="chartCurve"></canvas></div><!--This line holds our graph. Or, rather, the canvas for it-->
+        <div class="graphViewer-grid-variables" id = "graphViewer-grid-variables" >
+            {% for variable, verbose, hovertext in Data.button_params %}
+                <button type = "button" class = "graphButton" update-url = "{% url 'base:ajax_graphViewer_graph_update' %}" value = "{{variable}}">{{verbose}}<span class = "hovertext">{{hovertext}}</span></button>
+            {% endfor %}
+        </div>
+        <div class = "graphViewer-grid-askhelp"><a href = "{% url 'base:synonymFinder'%}">Help! None of these are the thing I want!</a></div>
+        <script src = {% static "scripts/graph_handling.js" %}></script>
+        <script src = {% static "scripts/graph_button_handling.js" %}></script>
+    </body>
+</html>
