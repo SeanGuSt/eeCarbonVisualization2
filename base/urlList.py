@@ -1,5 +1,5 @@
 from django.urls import path
-#from . import models_loc
+from . import models_loc
 from . import views
 app_name = "base"
 print("Am I printing twice?")

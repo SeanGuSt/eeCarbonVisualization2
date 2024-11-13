@@ -51,7 +51,6 @@ def fetch_data(source: Source, include = [], exclude = []):
     for dataset in datasets:
         synonyms = Synonym.objects.filter(dataset = dataset)#Get synonyms which belong to dataset.
         synList = list(synonyms.values_list("name", flat = True))
-        print(synList)
         if include != []:
             synList = intersection(synList, list(synonyms.filter(standard__name__in = include).values_list("name", flat = True)))
         for syn in list(synonyms.filter(standard__name__in = exclude).values_list("name", flat = True)):
@@ -59,7 +58,6 @@ def fetch_data(source: Source, include = [], exclude = []):
                 synList.remove(syn)
         if synList == []:
             continue
-        print(synList)
         standards = list(synonyms.values_list("standard__name", flat = True))
         response = requests.get(dataset.file) # make a request
         if response.status_code == 200:

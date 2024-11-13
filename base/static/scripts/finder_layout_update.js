@@ -81,7 +81,7 @@ map.on('popupopen', function(e) {
                 tooltipItems.forEach(function(tooltipItem) {//For each layer of soil data
                     for(let i = 0; i < footer_keys_count; i++){//For each string in footer_keys
                         value = cdd[tooltipItem.datasetIndex-1][data.footer_keys[i]][tooltipItem.dataIndex];
-                        if(value){//If this value exists
+                        if(value != -1){//If this value exists
                             //have the following string show up.
                             footer_lines.push(data.footer_values[i] + ": " + value);
                         }

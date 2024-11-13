@@ -63,10 +63,9 @@ def load_layer_values(request):
             df.loc[df[LOC_LVL_0] == site.name, LAT] = site.latitude
             df.loc[df[LOC_LVL_0] == site.name, LONG] = site.longitude
     layers = df.loc[df[LOC_LVL_0].isin(station)].fillna(-1)
-    print(layers["SOC"])
     sample_list = layers[SAMPLE_NUM].to_list()
     num_samples, num_layers = count_changes(sample_list)
-    print(f'{sample_list} with {num_samples} samples each having at most {num_layers} layers')
+    print(f'Site collection has {num_samples} samples each having at most {num_layers} layers')
     superDict = {"site" : station, "footer_keys" : summary_keys, "footer_values" : summary_values}
     def prepare_data_4_box_chart_js(myList: list):
         layer_num = -1
